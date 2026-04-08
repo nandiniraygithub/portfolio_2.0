@@ -13,7 +13,7 @@ export function Navbar() {
             className="fixed w-full px-5 sm:px-10 md:px-20 py-6 flex justify-between items-center font-neue z-50 bg-zinc-900/40 backdrop-blur-xl border-b border-white/5"
         >
             <div className="logo">
-                <h1 className="text-2xl font-bold tracking-tighter uppercase">NR.</h1>
+                <h1 className="text-2xl font-bold tracking-tighter uppercase text-white">NR.</h1>
             </div>
 
             {/* Desktop Navigation */}
@@ -23,7 +23,7 @@ export function Navbar() {
                         href={`#${item.toLowerCase()}`}
                         key={index}
                         whileHover={{ scale: 1.1, color: "#ceea69" }}
-                        className="text-sm uppercase tracking-widest font-medium cursor-pointer transition-colors"
+                        className="text-sm uppercase tracking-widest font-medium cursor-pointer transition-colors text-white"
                     >
                         {item}
                     </motion.a>
@@ -66,7 +66,7 @@ export function Navbar() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 * index }}
                                 key={index}
-                                className="text-4xl uppercase font-bold tracking-tighter hover:text-[#ceea69]"
+                                className="text-4xl uppercase font-bold tracking-tighter text-white hover:text-[#ceea69]"
                                 onClick={() => setIsMenuOpen(false)}
                                 href={`#${item.toLowerCase()}`}
                             >
