@@ -101,7 +101,11 @@ export default function Home() {
 
       {!isLoading && (
         <div className="relative">
-          <CustomCursor />
+          {typeof window !== 'undefined' && 
+    window.innerWidth > 768 && 
+    'ontouchstart' in window === false && 
+    navigator.maxTouchPoints === 0 && 
+    <CustomCursor />}
           <Navbar />
 
           <main id="main-content" className="relative">

@@ -96,7 +96,7 @@ export function Featured() {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-6 text-center">
+                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-3 sm:p-6 text-center">
 
                   <AnimatePresence mode="wait">
                     {hoveredDescription === project.id ? (
@@ -105,14 +105,14 @@ export function Featured() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="text-white text-lg font-semibold mb-6"
+                        className="text-white text-sm sm:text-lg font-semibold mb-3 sm:mb-6 px-2"
                       >
                         {project.description}
                       </motion.p>
                     ) : (
                       <motion.h2
                         key="title"
-                        className="text-[#ceea69] text-4xl font-bold mb-6"
+                        className="text-[#ceea69] text-xl sm:text-4xl font-bold mb-3 sm:mb-6 px-2"
                       >
                         {project.title}
                       </motion.h2>
@@ -120,7 +120,7 @@ export function Featured() {
                   </AnimatePresence>
 
                   {/* LINKS */}
-                  <div className="flex flex-wrap gap-3 justify-center">
+                  <div className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center">
 
                     {/* Live */}
                     {project.live && (
@@ -129,9 +129,9 @@ export function Featured() {
                         target="_blank"
                         onMouseEnter={() => setHoveredDescription(project.id)}
                         onMouseLeave={() => setHoveredDescription(null)}
-                        className="w-12 h-12 bg-white rounded-full flex items-center justify-center"
+                        className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full flex items-center justify-center shadow-lg"
                       >
-                        <ArrowUpRight size={20} />
+                        <ArrowUpRight size={18} className="sm:size-20" />
                       </a>
                     )}
 
@@ -142,9 +142,9 @@ export function Featured() {
                         target="_blank"
                         onMouseEnter={() => setHoveredDescription(project.id)}
                         onMouseLeave={() => setHoveredDescription(null)}
-                        className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center"
+                        className="w-12 h-12 sm:w-14 sm:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-lg"
                       >
-                        <Code size={20} />
+                        <Code size={18} className="sm:size-20" />
                       </a>
                     )}
 
@@ -153,7 +153,7 @@ export function Featured() {
                       <a
                         href={project.githubFrontend}
                         target="_blank"
-                        className="px-3 py-1 bg-black text-white rounded-full text-xs"
+                        className="px-3 py-2 sm:px-4 sm:py-2 bg-black text-white rounded-full text-sm sm:text-xs font-medium shadow-md"
                       >
                         Frontend
                       </a>
@@ -164,7 +164,7 @@ export function Featured() {
                       <a
                         href={project.githubBackend}
                         target="_blank"
-                        className="px-3 py-1 bg-white text-black border rounded-full text-xs"
+                        className="px-3 py-2 sm:px-4 sm:py-2 bg-white text-black border-2 rounded-full text-sm sm:text-xs font-medium shadow-md"
                       >
                         Backend
                       </a>
@@ -175,7 +175,7 @@ export function Featured() {
                       <a
                         href={project.demo}
                         target="_blank"
-                        className="px-3 py-1 bg-red-500 text-white rounded-full text-xs"
+                        className="px-3 py-2 sm:px-4 sm:py-2 bg-red-500 text-white rounded-full text-sm sm:text-xs font-medium shadow-md"
                       >
                         Demo
                       </a>
@@ -185,11 +185,11 @@ export function Featured() {
               </motion.div>
 
               {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mt-6">
+              <div className="flex flex-wrap gap-1 sm:gap-2 mt-4 sm:mt-6">
                 {project.tech.map((t, i) => (
                   <span
                     key={i}
-                    className="px-4 py-1 border border-zinc-400 rounded-full text-xs uppercase"
+                    className="px-2 sm:px-4 py-0.5 sm:py-1 border border-zinc-400 rounded-full text-xs uppercase"
                   >
                     {t}
                   </span>

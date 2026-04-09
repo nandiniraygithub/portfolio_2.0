@@ -8,6 +8,14 @@ export default function CustomCursor() {
   const followerRef = useRef(null);
 
   useEffect(() => {
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
+    
+    // Don't initialize cursor on mobile - return early
+    if (isMobile) {
+      return;
+    }
+
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
@@ -76,6 +84,12 @@ export default function CustomCursor() {
     };
   }, []);
 
+  // Don't render anything on mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  if (isMobile) {
+    return null;
+  }
+
   return (
     <>
       {/* Main cursor point */}
@@ -97,21 +111,6 @@ export default function CustomCursor() {
         animate={{ scale: 1 }}
         transition={{ duration: 0.3 }}
       />
-
-      {/* Hide cursor on mobile and ensure visibility */}
-      <style jsx>{`
-        * {
-          cursor: none !important;
-        }
-        @media (max-width: 768px) {
-          div {
-            display: none !important;
-          }
-          * {
-            cursor: auto !important;
-          }
-        }
-      `}</style>
     </>
   );
 }
